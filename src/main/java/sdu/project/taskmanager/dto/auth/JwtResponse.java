@@ -1,4 +1,4 @@
-package sdu.project.taskmanager.dto;
+package sdu.project.taskmanager.dto.auth;
 
 import lombok.Data;
 

@@ -1,7 +1,6 @@
-package sdu.project.taskmanager.dto.task;
+package sdu.project.taskmanager.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -28,8 +27,13 @@ public class TaskDto {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdAt;
-    
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedAt;
 
+    @NotNull(message = "admin id must be setted.", groups = {OnCreate.class})
+    private Long admin_id;
+
+    @NotNull(message = "executor id must be setted.", groups = {OnCreate.class, OnUpdate.class})
+    private Long executor_id;
 }
